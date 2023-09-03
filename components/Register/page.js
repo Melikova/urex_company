@@ -61,7 +61,7 @@ export default function Register() {
             <div className="form-group">
               <label>Phone Number</label>
               <PhoneInput
-                  placeholder="Only USA phone numbers are acceptable"
+                  placeholder="Only USA phone numbers"
                   defaultCountry="US"
                   value={phoneNumberValue}
                   onChange={setPhoneNumberValue} 
