@@ -1,24 +1,30 @@
 import { useForm } from "react-hook-form";
 import { app } from '../../firebase.config'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 
 export default function Login() {
+  const [ showAuthAlert, setShowAuthAlert ] = useState(false);
   const {setCurrentPage} = useContext(SignContext);
   const auth = getAuth(app);
-  const { register, handleSubmit, watch, formState: { errors } } = useForm({mode: "all"});
+  const { register, handleSubmit, formState: { errors } } = useForm({mode: "all"});
 
   const onSubmit = async(data) => {
     try{
-      const user = signInWithEmailAndPassword(auth, data.email, data.pass);
-      console.log(user);
+      await signInWithEmailAndPassword(auth, data.email, data.pass);
     }catch(error){
-      console.log(error.message);
+      setShowAuthAlert(true);
     } 
   }
+
     return (
       <>
+      {showAuthAlert &&
+        <div class="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <span class="block sm:inline">{showAuthAlert && 'Email or Password is incorrect'}</span>
+        </div>
+      }
       <form onSubmit={handleSubmit(onSubmit)}>
       <p className='form_title text-4xl font-semibold mb-5'>Login</p>
       <p className='form_subtitle text-sm font-normal'>Please enter your email and your password</p>

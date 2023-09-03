@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
 import { app } from '../../firebase.config'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
+import PhoneInput from 'react-phone-number-input/input'
+// import 'react-phone-number-input/style.css'
 
-export default function Register() {
+export default function Register() { 
+    const [phoneNumberValue, setPhoneNumberValue] = useState()
     const {setCurrentPage, setEmailVerificationCode, setUserEmail} = useContext(SignContext);
     const auth = getAuth(app);
     const { register, handleSubmit, watch, formState: { errors } } = useForm({mode: "all"});
@@ -57,11 +60,22 @@ export default function Register() {
             </div>
             <div className="form-group">
               <label>Phone Number</label>
-              <input {
+              <PhoneInput
+                  placeholder="Only USA phone numbers are acceptable"
+                  defaultCountry="US"
+                  value={phoneNumberValue}
+                  onChange={setPhoneNumberValue} 
+                  maxLength="14"
+              />
+              {/* <input {
                 ...register('phone', {
-                  required:"Phone number is required"
+                  required:"Phone number is required",
+                  pattern: {
+                    value: /\(\d{3}\)[ ]?\d{3}[-]?\d{4}/,
+                    message: "Only USA phone numbers are acceptable"
+                  }
                 })
-              }/>
+              }/> */}
               <div>{errors?.phone && <p className='text-red-600 mt-1'>{errors?.phone?.message || "Error"}</p>}</div>
             </div>
             <div className="form-group">
