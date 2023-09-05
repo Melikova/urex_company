@@ -8,7 +8,7 @@ import PhoneInput from 'react-phone-number-input/input'
 
 export default function Register() { 
     const [phoneNumberValue, setPhoneNumberValue] = useState()
-    const {setCurrentPage, setEmailVerificationCode, setUserEmail} = useContext(SignContext);
+    const {setCurrentPage, setEmailVerificationCode, setUserEmail, setEmailSuccesConfirmed} = useContext(SignContext);
     const auth = getAuth(app);
     const { register, handleSubmit, watch, formState: { errors } } = useForm({mode: "all"});
 
@@ -21,6 +21,11 @@ export default function Register() {
         }catch(error){
           console.log(error.message);
         } 
+    }
+
+    const handleSignIn = () =>{
+      setCurrentPage('login');
+      setEmailSuccesConfirmed(false);
     }
 
     return (
@@ -122,7 +127,7 @@ export default function Register() {
             </button>
           </form>
           <div className='text-center text-lg'>
-            <p>Do you have an account? <a className="font-semibold" href="#" onClick={()=>setCurrentPage('login')}>Sign in</a></p>
+            <p>Do you have an account? <a className="font-semibold" href="#" onClick={()=>handleSignIn()}>Sign in</a></p>
           </div>
           <div className='social flex justify-center '>
             <div className='flex w-fit gap-x-12'>
