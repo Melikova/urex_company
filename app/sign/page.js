@@ -16,6 +16,7 @@ export default function Sign() {
   const [currentPage, setCurrentPage] = useState('login');
   const [emailVerificationCode, setEmailVerificationCode] = useState('666666');
   const [userEmail, setUserEmail] = useState('');
+  const [emailSuccesConfirmed, setEmailSuccesConfirmed] = useState(false);
 
   const renderPage= ()=>{
     switch(currentPage){
@@ -35,7 +36,8 @@ export default function Sign() {
         <SignContext.Provider value={{
           currentPage, setCurrentPage, 
           emailVerificationCode, setEmailVerificationCode,
-          userEmail, setUserEmail
+          userEmail, setUserEmail,
+          emailSuccesConfirmed, setEmailSuccesConfirmed
         }}>{ renderPage() }</SignContext.Provider>
       </div>
       </div>

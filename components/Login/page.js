@@ -6,7 +6,7 @@ import { SignContext } from '../../contexts/SignContext'
 
 export default function Login() {
   const [ showAuthAlert, setShowAuthAlert ] = useState(false);
-  const {setCurrentPage} = useContext(SignContext);
+  const {setCurrentPage, emailSuccesConfirmed} = useContext(SignContext);
   const auth = getAuth(app);
   const { register, handleSubmit, formState: { errors } } = useForm({mode: "all"});
 
@@ -20,6 +20,11 @@ export default function Login() {
 
     return (
       <>
+      {emailSuccesConfirmed &&
+        <div class="mb-8 text-center lg:text-left bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+          <span class="block sm:inline">{emailSuccesConfirmed && 'Email is succesfully confirmed'}</span>
+        </div>
+      }
       {showAuthAlert &&
         <div class="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
           <span class="block sm:inline">{showAuthAlert && 'Email or Password is incorrect'}</span>
