@@ -1,0 +1,147 @@
+@import './../../styles/variable.scss';
+
+.advanceprotection {
+    position: relative;
+    z-index: 1;
+
+    * {
+        font-family: $urexc !important;
+    }
+
+    .bg {
+        width: 100%;
+        margin-bottom: -7px;
+        height: auto;
+    }
+
+    >div {
+        background: #F8F8F8;
+
+        .container {
+            .row:first-child {
+                padding-top: 0;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 40px;
+                align-items: center;
+                padding: 30px 0;
+
+                .image {
+                    width: 100%;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                .text {
+                    width: 100%;
+                    h3 {
+                        width: 100%;
+                        color: var(--heading-color, #211F25);
+                        font-size: 5vh;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 120%;
+                        letter-spacing: -0.48px;
+                        margin-bottom: 16px;
+                    }
+
+                    p {
+                        width: 100%;
+                        color: var(--pragraph, #3D3A41);
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 155%;
+                        letter-spacing: 0.32px;
+                        margin-bottom: 40px;
+                    }
+
+                    .button {
+                        cursor: pointer;
+                        display: inline-block;
+                        padding: 16px 28px;
+                        color: #21364B;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 155%;
+                        letter-spacing: 0.16px;
+                        border-radius: 32px;
+                        border: 1px solid #21364B;
+                        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+
+                        &:hover {
+                            background: #21364B;
+                            color: $white;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet) {}
+
+@media (min-width: $desktop) {
+    .advanceprotection {
+        >div {
+            .container {
+                .row {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap: 0px;
+                    padding: 100px 0;
+
+                    .image {
+                        width: 48%;
+                    }
+
+                    .text {
+                        width: 50%;
+
+                        h3 {
+                            font-weight: 700;
+                            line-height: 120%;
+                            letter-spacing: -0.48px;
+                            margin-bottom: 16px;
+                        }
+
+                        p {
+                            width: 90%;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 155%;
+                            letter-spacing: 0.32px;
+                            margin-bottom: 40px;
+                        }
+
+                        .button {
+                            padding: 16px 28px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            line-height: 155%;
+                            letter-spacing: 0.16px;
+                            border-radius: 32px;
+                        }
+                    }
+                }
+
+                .row:last-child {
+                    >div:first-child {
+                        order: 1;
+                    }
+                }
+            }
+        }
+    }
+
+}

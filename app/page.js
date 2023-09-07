@@ -1,9 +1,30 @@
+import Footer from '../components/Footer/page'
+import Header from '../components/Header/page'
+import ContactUs from '../components/ContactUs/page'
+import PriceCards from '../components/PriceCards/page'
+import Estates from '../components/Estates/page'
+import AdvanceProtection from '@/components/AdvanceProtection/page'
+import AroundText from '@/components/AroundText/page'
+import Parallax from '@/components/Parallax/page'
+
+import Head from 'next/head'
+
 export default function Home() {
   return (
     <>
-      <a href="/sign">
-        <button type="button" class="py-2.5 px-5 m-6 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Login</button>
-      </a>
+      <Header />
+      <div className='landing'>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no" />
+        </Head>
+      <Parallax />
+      <AroundText />
+      <AdvanceProtection />
+      <Estates />
+      <PriceCards />
+      <ContactUs />
+      </div>
+      <Footer />
     </>
   )
 }

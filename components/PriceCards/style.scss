@@ -1,0 +1,263 @@
+@import './../../styles/variable.scss';
+
+.applications {
+    padding: 85px 0 24px 0;
+    background: radial-gradient(115.50% 115.50% at 50.00% 50.00%, #023160 0%, #1C2E41 51.56%, #305173 100%);
+
+    * {
+        font-family: $dm-sans !important;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        .application {
+            padding: 20px;
+            cursor: pointer;
+            position: relative;
+            border-radius: 24px;
+            border: 1px solid #EFF0F6;
+            background: $white;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .whatFor {
+                color: $appColor;
+                font-size: 2vh;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 20px;
+            }
+
+            .type {
+                color: #170F49;
+                font-size: 2.1vh;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 3.7vh;
+                margin-bottom: 3.1vh;
+            }
+
+            .text {
+                color: $appColor;
+                font-size: 2vh;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 3.2vh;
+                margin-bottom: 1.4vh;
+            }
+
+            .price {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                gap: 10px;
+                margin-bottom: 1.8vh;
+
+                p:first-child {
+                    color: #170F49;
+                    font-size: 6vh;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 7.1vh;
+                }
+
+                p:last-child {
+                    color: $appColor;
+                    font-size: 2.1vh;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 5vh;
+                }
+            }
+
+            .list {
+                margin-bottom: 4vh;
+
+                >p {
+                    color: #170F49;
+                    font-size: 2vh;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 2.1;
+                    margin-bottom: 2.6vh;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+
+                    li {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 14px;
+
+                        .icon {
+                            background: url('./../../images/iconBlack.svg');
+                            background-repeat: no-repeat;
+                            width: 26px;
+                            height: 26px;
+                        }
+
+                        p {
+                            font-size: 2vh;
+                            font-weight: 400;
+                            font-style: normal;
+                            line-height: 2.1;
+                        }
+                    }
+                }
+            }
+
+            .button {
+                padding: 26px 38px;
+                border-radius: 96px;
+                background: #21364B;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 2vh;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 2.1vh;
+            }
+
+            .popular {
+                padding: 12px 24px 13px 24px;
+                position: absolute;
+                top: 32px;
+                right: 32px;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.20);
+                color: $white;
+                font-size: 1.5vh;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.5vh;
+            }
+
+
+            &:hover {
+                border-radius: 24px;
+                border: 1px solid #EFF0F6;
+                background: #21364B;
+                box-shadow: 0px 2px 12px 0px rgba(20, 20, 43, 0.08);
+
+                * {
+                    color: $white !important;
+                }
+
+                .button {
+                    color: #21364B !important;
+                    background: $white;
+                }
+
+                .icon {
+                    background: url('./../../images/iconWhite.svg') !important;
+                    width: 26px;
+                    height: 26px;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: $tablet) {}
+
+@media (min-width: $desktop) {
+    .applications {
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .application {
+                padding: 4.3vh 2.7% 6.3vh 2.7%;
+                border-radius: 24px;
+                background: $white;
+                width: 30.8%;
+
+                .whatFor {
+                    font-weight: 500;
+                }
+
+                .type {
+                    font-weight: 700;
+                    margin-bottom: 29px;
+                }
+
+                .text {
+                    font-weight: 400;
+                    margin-bottom: 13px;
+                }
+
+                .price {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+                    gap: 10px;
+                    margin-bottom: 17px;
+
+                    p:first-child {
+                        font-weight: 700;
+                    }
+
+                    p:last-child {
+                        font-weight: 500;
+                    }
+                }
+
+                .list {
+                    margin-bottom: 37px;
+
+                    ul {
+
+                        li {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 14px;
+
+                            .icon {
+                                background: url('./../../images/iconBlack.svg');
+                                width: 26px;
+                                height: 26px;
+                                background-repeat: no-repeat;
+                            }
+                        }
+                    }
+                }
+
+                .button {
+                    padding: 26px 38px;
+                    border-radius: 96px;
+                    font-weight: 700;
+                }
+
+                .popular {
+                    padding: 12px 24px 13px 24px;
+                    position: absolute;
+                    top: 32px;
+                    right: 32px;
+                    border-radius: 10px;
+                    font-weight: 400;
+                }
+
+                &:hover {
+                    top: -34px !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,316 @@
+@import './../../styles/variable.scss';
+
+.contactInfo {
+    background: #FFF;
+    padding: 10px;
+
+    * {
+        font-family: $urexc;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 70px;
+
+        >div:first-child {
+            width: 100%;
+            height: auto;
+            background: #21364B;
+            padding: 20px;
+            border-radius: 20px;
+            background-image: url('./../../images/arounds.png');
+            background-position: bottom right;
+            background-repeat: no-repeat;
+
+            * {
+                color: $white;
+            }
+
+            h2 {
+                margin-bottom: 15vh;
+                font-size: 2.6vh;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                >div {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 25px;
+
+                    >div {
+                        width: 59%;
+                    }
+                }
+            }
+        }
+
+        .contactUs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+
+            h3 {
+                font-size: 2.4vh;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin-bottom: 15px;
+            }
+
+            form {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .activeLabel label {
+                    font-size: 1.2vh !important;
+                    top: 30% !important;
+                }
+
+                .form-group {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 100%;
+                    border-radius: 11.25px;
+                    border: 0.75px solid #F0F0F3;
+                    background: #F6F6F6;
+                    cursor: pointer;
+                    margin-bottom: 12px;
+
+                    label {
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                        font-size: 1.4vh;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        opacity: 0.30000001192092896;
+                        transition: .3s;
+                        left: 15px;
+                    }
+
+                    .select {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        position: relative;
+                        height: 5vh;
+                        cursor: pointer;
+
+                        .rotate {
+                            top: 30%;
+                            transform: rotate(-180deg);
+                        }
+
+                        .option {
+                            font-size: 1.4vh !important;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+
+                        #option {
+                            z-index: 1;
+                            position: absolute;
+                            background: #f6f6f6;
+                            border-top: 1px solid $white;
+                            width: 100%;
+                            top: 45px;
+                            left: 0;
+                            display: none;
+
+                            >div {
+                                padding: 15px 20px;
+                                border-bottom: 2px solid $white;
+
+                                &:hover {
+                                    background: $white;
+                                    border: 5px solid $white;
+                                }
+                            }
+                        }
+
+                    }
+
+                    input {
+                        z-index: 1;
+                        background: transparent;
+                        outline: none;
+                        border: none;
+                        width: 100%;
+                        padding: 21.5px 15px 8.5px 15px;
+
+                        font-size: 1.4vh;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+
+                    }
+
+                    input:focus~label {
+                        font-size: 1.2vh;
+                        top: 30%;
+                    }
+
+
+                    textarea {
+                        width: 100%;
+                        background: transparent;
+                        border: none;
+                        padding: 30px 15px 15px 15px;
+                        outline: none;
+                        resize: none;
+                        height: 16vh;
+
+                        &::placeholder {
+                            opacity: 0.20000000298023224;
+                            font-size: 1.3vh;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                        }
+                    }
+
+                }
+
+                .textarea {
+                    label {
+                        top: 12px;
+                        transform: translate(0);
+                    }
+                }
+
+                .button {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row-reverse;
+
+                    button {
+                        cursor: pointer;
+                        color: $white;
+                        padding: 15px;
+                        text-align: center;
+                        min-width: 30%;
+                        font-size: 1.6vh;
+                        border-radius: 11.25px;
+                        background: #21364B;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        border: none;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet) {}
+
+@media (min-width: $desktop) {
+    .contactInfo {
+        padding: 10px;
+
+        .container {
+
+            >div:first-child {
+                padding: 4.3vh 1.4%;
+                width: 40%;
+                min-height: 70vh;
+                border-radius: 20px;
+
+                h2 {
+                    font-size: 3vh;
+                    font-weight: 600;
+                }
+
+                >div {
+                    gap: 50px;
+
+                    >div {
+                        gap: 25px;
+                    }
+                }
+            }
+
+            .contactUs {
+                width: 47% !important;
+
+                h3 {
+                    font-size: 2.5vh;
+                    margin-bottom: 15px;
+                }
+
+                form {
+                    width: 100%;
+                    flex-wrap: wrap;
+                    gap: 12px;
+
+                    .form-group {
+                        border-radius: 11.25px;
+
+                        label {
+                            font-weight: 500;
+                            opacity: 0.30000001192092896;
+                            transition: .3s;
+                        }
+
+                        input {
+                            padding: 21.5px 15px 8.5px 15px;
+                            font-weight: 600;
+
+                        }
+
+                        input:focus~label {
+                            top: 30%;
+                        }
+
+
+                        textarea {
+                            width: 100%;
+                            padding: 30px 15px 15px 15px;
+
+                            &::placeholder {
+                                opacity: 0.20000000298023224;
+                                font-weight: 400;
+                            }
+                        }
+
+                    }
+
+                    .textarea {
+                        label {
+                            top: 12px;
+                        }
+                    }
+
+                    .button {
+                        width: 100%;
+
+                        button {
+                            border-radius: 11.25px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

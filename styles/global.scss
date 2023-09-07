@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  input,
+  select,
+  textarea {
+    font-size: 100%;
+    touch-action: manipulation;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 0 15px;
+    margin: auto;
+  }
+  
+  .landing {
+    background: #21364B;
+    background-image: url('./../images/rectangles.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .col6 {
+    width: 100%;
+  }
+  
+  .col12 {
+    width: 100%;
+  }
+  
+  
+  .pages {
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  
+    >div:first-child{
+      padding: 0 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  .layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: $tablet) {}
+  @media (min-width: $desktop) {
+    .container {
+      width: 90%;
+    }
+  
+    .col6 {
+      width: 48% !important;
+    }
+  
+    .pages {
+      width: 80%;
+      padding-top: 20px;
+      padding-bottom: 250px;
+  
+      >div:first-child{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  
+    .layout {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }

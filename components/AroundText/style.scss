@@ -1,0 +1,63 @@
+@import './../../styles/variable.scss';
+
+.aroundText {
+    * {
+        font-family: $dm-sans;
+    }
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    transition: 1s;
+    width: 18vw;
+
+    .roatetimage {
+        width: 100%;
+        height: auto;
+        animation: rotate-animation 10s infinite linear;
+    }
+
+    .playbutton {
+        height: auto;
+        width: 2.5vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @keyframes rotate-animation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.aroundScroll {
+    transform: translate(-50%, -20%);
+    z-index: 9;
+
+}
+
+
+@media (min-width: $tablet) {}
+
+@media (min-width: $desktop) {
+    .aroundText {
+        transform: translate(-50%, 50%);
+        width: 13vw;
+    }
+
+    .aroundScroll {
+        transform: translate(-50%, 15%);
+        z-index: 0;
+    }
+}

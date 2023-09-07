@@ -1,0 +1,194 @@
+@import './../../styles/variable.scss';
+
+.estates {
+    background: #F8F8F8;
+    padding: 2.1vh 0 8vh 0;
+    overflow: hidden;
+
+    * {
+        font-family: $urexc;
+    }
+
+    .slick-slide {
+        >div {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .estate {
+        width: 90% !important;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+
+        .estateInfo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+
+            p {
+                color: #2B2B2B;
+                font-size: 3vh;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+
+            h3 {
+                color: #2B2B2B;
+                font-size: 2.1vh;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+
+            h4 {
+                color: #808080;
+                font-size: 1.8vh;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 3vh;
+            }
+        }
+
+        .image {
+            position: relative;
+            margin-bottom: 32px;
+            width: 100%;
+
+            >img {
+                width: 100% !important;
+                height: auto;
+            }
+
+            .popular {
+                background: #FFE1E1;
+
+                p {
+                    color: #FF1111;
+                }
+            }
+
+            .new-listing {
+                background: #D7EEFF;
+
+                p {
+                    color: #119BFF;
+                }
+            }
+
+            .discounted-price {
+                background: #F1FFF1;
+
+                p {
+                    color: #00CE3A;
+                }
+            }
+
+            .type {
+                padding: 10px 24px;
+                bottom: 30px;
+                left: 8%;
+                position: absolute;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                border-radius: 20px;
+
+                img {
+                    height: 2.2vh;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        >div {
+            width: 70%;
+        }
+
+        h4 {
+            color: #21364B;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 2.91px;
+            margin-bottom: 19px;
+        }
+
+        h3 {
+            color: #2B2B2B;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 47px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            color: #808080;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 26px;
+            margin-bottom: 50px;
+        }
+
+        .button {
+            cursor: pointer;
+            width: 80px;
+            height: 59px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            border: 1px solid #21364B;
+            background: $white;
+            color: #21364B;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+
+            &:hover {
+                background: #21364B;
+                color: $white;
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet) {}
+
+@media (min-width: $desktop) {
+
+    .estates {
+        .estate {
+            width: 85% !important;
+
+            .image {
+                width: 100%;
+            }
+
+            .type {
+                left: 30px;
+            }
+
+        }
+    }
+}
