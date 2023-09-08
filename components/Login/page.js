@@ -4,6 +4,9 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 
+import Image from 'next/image';
+import logo from './../../images/logo_2.svg';
+
 export default function Login() {
   const [ showAuthAlert, setShowAuthAlert ] = useState(false);
   const {setCurrentPage, emailSuccesConfirmed} = useContext(SignContext);
@@ -13,6 +16,8 @@ export default function Login() {
   const onSubmit = async(data) => {
     try{
       await signInWithEmailAndPassword(auth, data.email, data.pass);
+      console.log(emailSuccesConfirmed);
+      redirect("/");
     }catch(error){
       setShowAuthAlert(true);
     } 
@@ -21,15 +26,16 @@ export default function Login() {
     return (
       <>
       {emailSuccesConfirmed &&
-        <div class="mb-8 text-center lg:text-left bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-          <span class="block sm:inline">{emailSuccesConfirmed && 'Email is succesfully confirmed. Please login'}</span>
+        <div className="mb-8 text-center lg:text-left bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+          <span className="block sm:inline">{emailSuccesConfirmed && 'Email is succesfully confirmed. Please login'}</span>
         </div>
       }
       {showAuthAlert &&
-        <div class="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-          <span class="block sm:inline">{showAuthAlert && 'Email or Password is incorrect'}</span>
+        <div className="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <span className="block sm:inline">{showAuthAlert && 'Email or Password is incorrect'}</span>
         </div>
       }
+      <a href="/" className="block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
       <form onSubmit={handleSubmit(onSubmit)}>
       <p className='form_title text-4xl font-semibold mb-5'>Login</p>
       <p className='form_subtitle text-sm font-normal'>Please enter your email and your password</p>

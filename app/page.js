@@ -6,8 +6,8 @@ import Estates from '../components/Estates/page'
 import AdvanceProtection from '@/components/AdvanceProtection/page'
 import AroundText from '@/components/AroundText/page'
 import Parallax from '@/components/Parallax/page'
-
 import Head from 'next/head'
+
 
 export default function Home() {
   return (

@@ -5,6 +5,8 @@ import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 import PhoneInput from 'react-phone-number-input/input'
 // import 'react-phone-number-input/style.css'
+import Image from 'next/image';
+import logo from './../../images/logo_2.svg';
 
 export default function Register() { 
     const [phoneNumberValue, setPhoneNumberValue] = useState()
@@ -30,6 +32,7 @@ export default function Register() {
 
     return (
         <>
+        <a href="/" className="block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
             <form onSubmit={handleSubmit(onSubmit)}>
             <p className='form_title text-4xl font-semibold mb-12'>Register</p>
             {/* <p className='form_subtitle text-sm font-normal'>Enter the fields below to get started</p> */}
