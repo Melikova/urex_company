@@ -57,7 +57,7 @@ function Navbar() {
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <a href="/addlisting" type="button" className="hidden lg:block me-5 border border-slate-400 hover:border-slate-100 hidden lg:block relative rounded px-5 py-2 bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none">
+            <a href="/addlisting" type="button" className="border border-slate-400 hover:border-slate-100 hidden lg:block relative rounded px-5 py-2 bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none">
               + Add Listing
             </a>
             {isLogged ===true ? 
@@ -87,7 +87,7 @@ function Navbar() {
             }
           </div>
           </> : 
-            <a href="/sign" type="button" className="hidden lg:block relative px-5 py-2 bg-gray-800 hover:text-white text-slate-200 focus:outline-none">
+            <a href="/sign" type="button" className="block relative px-5 py-2 bg-gray-800 hover:text-white text-slate-200 focus:outline-none">
               Sign In
             </a>
             }
