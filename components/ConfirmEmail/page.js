@@ -50,12 +50,12 @@ export default function ConfirmEmail() {
     return (
         <>
           {timer === 0 && 
-            <div class="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div className="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
               <span className="block sm:inline">{'Time is expired !!!'}</span>
             </div>
           }
           {showAuthAlert &&
-            <div class="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div className="mb-8 text-center lg:text-left bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
               <span className="block sm:inline">{showAuthAlert && 'Code is incorrect !!!'}</span>
             </div>
           }

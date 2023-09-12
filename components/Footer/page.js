@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
     <footer>
-      <div className='flex flex-col lg:flex-row bg-zinc-200 py-16 px-6 lg:px-48 justify-between'>
+      <div className='flex flex-col lg:flex-row bg-zinc-200 py-16 px-6 xl:px-48 justify-between'>
         <div className='lg:basis-2/6 mb-10'>
           <div className='text-2xl font-semibold mb-8'>UREXC</div>
           <p className='text-neutral-800 text-base font-normal mb-6 flex items-center'><FaPhoneFlip size={20} className='me-3'/>+1 206-214-2298</p>
@@ -34,7 +34,7 @@ function Footer() {
           <div className='subscribe'>
             <div className='row'>
               <div className='text-xl font-semibold mb-6'>Subscribe to our Newsletter!</div>
-              <input placeholder="Email address" class="border-slate-200 placeholder-slate-400 rounded-md px-3 py-3 w-full"/>
+              <input placeholder="Email address" className="border-slate-200 placeholder-slate-400 rounded-md px-3 py-3 w-full"/>
               <p className='text-xl font-semibold my-8'>Follow us on</p>
               <div className='flex items-start space-x-4'>
                 <FaLinkedinIn size={30}/>
@@ -45,7 +45,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col lg:flex-row bg-black text-slate-400 py-5 px-6 lg:px-48 justify-between'>
+      <div className='flex flex-col lg:flex-row bg-black text-slate-400 py-5 px-6 xl:px-48 justify-between'>
         <div className='mb-6 lg:mb-0'>© Urexc – All rights reserved</div>
         <div className='flex lg:space-x-10 flex-col lg:flex-row'>
           <div className='mb-3 lg:mb-0'>Terms and Conditions</div>

@@ -16,6 +16,7 @@ export default function Login() {
   const onSubmit = async(data) => {
     try{
       await signInWithEmailAndPassword(auth, data.email, data.pass);
+      localStorage.setItem("isLoggedIn", true);
       router.push("/");
     }catch(error){
       setShowAuthAlert(true);

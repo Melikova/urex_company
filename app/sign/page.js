@@ -8,11 +8,16 @@ import ConfirmEmail from '../../components/ConfirmEmail/page'
 import ForgotPassword from '../../components/ForgotPassword/page'
 import PasswordReset from '../../components/PasswordReset/page'
 import SetNewPassword from '../../components/SetNewPassword/page'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SignContext } from '../../contexts/SignContext'
+import { useRouter } from 'next/navigation'
 
 
 export default function Sign() {
+  const router = useRouter();
+  useEffect(()=>{
+    localStorage.getItem("isLoggedIn") && router.push("/");
+  })
   const [currentPage, setCurrentPage] = useState('login');
   const [emailVerificationCode, setEmailVerificationCode] = useState('666666');
   const [userEmail, setUserEmail] = useState('');
