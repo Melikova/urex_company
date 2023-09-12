@@ -3,21 +3,20 @@ import { app } from '../../firebase.config'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
-
-import Image from 'next/image';
-import logo from './../../images/logo_2.svg';
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useRouter } from 'next/navigation'
 
 export default function Login() {
   const [ showAuthAlert, setShowAuthAlert ] = useState(false);
   const {setCurrentPage, emailSuccesConfirmed} = useContext(SignContext);
   const auth = getAuth(app);
   const { register, handleSubmit, formState: { errors } } = useForm({mode: "all"});
+  const router = useRouter();
 
   const onSubmit = async(data) => {
     try{
       await signInWithEmailAndPassword(auth, data.email, data.pass);
-      console.log(emailSuccesConfirmed);
-      redirect("/");
+      router.push("/");
     }catch(error){
       setShowAuthAlert(true);
     } 
@@ -35,10 +34,14 @@ export default function Login() {
           <span className="block sm:inline">{showAuthAlert && 'Email or Password is incorrect'}</span>
         </div>
       }
-      <a href="/" className="block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
+      <div className="mb-16 absolute lg:relative top-10 lg:top-0 left-10 lg:left-0">
+        <a href="/" className="w-fit font-semibold">
+          <FaArrowLeftLong className="inline-block me-2"/> Back to UREXC
+        </a>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-      <p className='form_title text-4xl font-semibold mb-5'>Login</p>
-      <p className='form_subtitle text-sm font-normal'>Please enter your email and your password</p>
+      <p className='form_title text-4xl font-semibold mb-12'>Login</p>
+      {/* <p className='form_subtitle text-sm font-normal'>Please enter your email and your password</p> */}
       <div className="form-group">
         <label>Email adress</label>
         <input {

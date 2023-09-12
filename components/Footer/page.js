@@ -6,9 +6,9 @@ function Footer() {
   return (
     <>
     <footer>
-      <div className='flex flex-col lg:flex-row bg-zinc-200 py-16 px-4 lg:px-48 justify-between'>
+      <div className='flex flex-col lg:flex-row bg-zinc-200 py-16 px-6 lg:px-48 justify-between'>
         <div className='lg:basis-2/6 mb-10'>
-          <div className='text-2xl font-semibold font-semibold mb-8'>UREXC</div>
+          <div className='text-2xl font-semibold mb-8'>UREXC</div>
           <p className='text-neutral-800 text-base font-normal mb-6 flex items-center'><FaPhoneFlip size={20} className='me-3'/>+1 206-214-2298</p>
           <p className='text-neutral-800 text-base font-normal mb-6 flex items-center'><FaEnvelope size={20} className='me-3'/>support@support.com</p>
           <p className='text-neutral-800 text-base font-normal mb-6 flex items-center'><FaLocationDot size={20} className='me-3'/>2728 Hickory StreetSalt Lake City, UT 84104</p>
@@ -30,7 +30,7 @@ function Footer() {
           <p className='text-neutral-800 text-base font-normal mb-3'>Africa</p>
           <p className='text-neutral-800 text-base font-normal mb-3'>India</p>
         </div>
-        <div className='lg:basis-1/4 border border-sky-500'>
+        <div className='lg:basis-1/4'>
           <div className='subscribe'>
             <div className='row'>
               <div className='text-xl font-semibold mb-6'>Subscribe to our Newsletter!</div>
@@ -45,7 +45,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col lg:flex-row bg-black text-slate-400 py-5 px-4 lg:px-48 justify-between'>
+      <div className='flex flex-col lg:flex-row bg-black text-slate-400 py-5 px-6 lg:px-48 justify-between'>
         <div className='mb-6 lg:mb-0'>© Urexc – All rights reserved</div>
         <div className='flex lg:space-x-10 flex-col lg:flex-row'>
           <div className='mb-3 lg:mb-0'>Terms and Conditions</div>

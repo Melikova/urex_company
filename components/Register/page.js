@@ -4,9 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 import PhoneInput from 'react-phone-number-input/input'
-// import 'react-phone-number-input/style.css'
-import Image from 'next/image';
-import logo from './../../images/logo_2.svg';
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function Register() { 
     const [phoneNumberValue, setPhoneNumberValue] = useState()
@@ -32,12 +30,16 @@ export default function Register() {
 
     return (
         <>
-        <a href="/" className="block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
+        <div className="mb-16 absolute lg:relative top-10 lg:top-0 left-10 lg:left-0">
+        <a href="/" className="w-fit font-semibold">
+          <FaArrowLeftLong className="inline-block me-2"/> Back to UREXC
+        </a>
+      </div>
             <form onSubmit={handleSubmit(onSubmit)}>
             <p className='form_title text-4xl font-semibold mb-12'>Register</p>
-            {/* <p className='form_subtitle text-sm font-normal'>Enter the fields below to get started</p> */}
+            <div className="flex flex-col lg:flex-row lg:space-x-4">
             <div className="form-group">
-              <label>Name, Lastname</label>
+              <label>Name</label>
               <input {
                 ...register('name', {
                   required:"User Name is required",
@@ -50,8 +52,26 @@ export default function Register() {
                     message: "Minimum 3 characters"
                   }
                 })
-              } placeholder='Example John Doe' />
+              } placeholder='Example John' />
               <div>{errors?.name && <p className='text-red-600 mt-1'>{errors?.name?.message || "Error"}</p>}</div>
+            </div>
+            <div className="form-group">
+              <label>Lastname</label>
+              <input {
+                ...register('surname', {
+                  required:"Last Name is required",
+                  pattern: {
+                    value: /^([^0-9]*)$/,
+                    message: "Numbers not allowed"
+                  },
+                  minLength: {
+                    value: 3,
+                    message: "Minimum 3 characters"
+                  }
+                })
+              } placeholder='Example Doe' />
+              <div>{errors?.surname && <p className='text-red-600 mt-1'>{errors?.surname?.message || "Error"}</p>}</div>
+            </div>
             </div>
             <div className="form-group">
               <label>Email adress</label>
@@ -110,7 +130,7 @@ export default function Register() {
                     }
                 </div>
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <label>Confirm password</label>
               <input {
                 ...register('confirm_pass', {
@@ -124,7 +144,7 @@ export default function Register() {
                 } 
                 type="password" />
                 <div>{errors?.confirm_pass && <p className='text-red-600 mt-1'>{errors?.confirm_pass?.message || "Error"}</p>}</div>
-            </div>
+            </div> */}
             <button type="submit" className='text-white rounded-xl mt-3 mb-3'>
               Register
             </button>
