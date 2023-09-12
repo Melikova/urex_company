@@ -45,7 +45,7 @@ function Navbar() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="UREXC Logo" />
-              <div className='text-2xl font-semibold ms-5 text-slate-200'>UREXC</div>
+              <div className='text-2xl font-semibold ms-2 xl:ms-5 text-slate-200'>UREXC</div>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
