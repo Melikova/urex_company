@@ -6,6 +6,9 @@ import { SignContext } from '../../contexts/SignContext'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useRouter } from 'next/navigation'
 
+import Image from 'next/image';
+import logo from './../../images/logo_2.svg';
+
 export default function Login() {
   const [ showAuthAlert, setShowAuthAlert ] = useState(false);
   const {setCurrentPage, emailSuccesConfirmed} = useContext(SignContext);
@@ -35,10 +38,11 @@ export default function Login() {
           <span className="block sm:inline">{showAuthAlert && 'Email or Password is incorrect'}</span>
         </div>
       }
-      <div className="mb-16 absolute lg:relative top-10 lg:top-0 left-10 lg:left-0">
+
+      <a href="/" className="hidden lg:block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
+      <div className="block lg:hidden mb-16 absolute">
         <a href="/" className="w-fit font-semibold">
-          <FaArrowLeftLong className="inline-block me-2"/> Back to UREXC
-        </a>
+          <FaArrowLeftLong className="inline-block me-2 mt-3"/></a>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
       <p className='form_title text-4xl font-semibold mb-12'>Login</p>

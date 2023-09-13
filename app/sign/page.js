@@ -36,7 +36,7 @@ export default function Sign() {
 
   return (
     <div className="p-10 flex flex-row min-h-screen">
-      <div className="basis-full lg:basis-1/2 flex justify-center items-center">
+      <div className="basis-full lg:basis-1/2 flex justify-center items-top lg:items-center">
       <div className='w-full lg:w-2/3 h-fit'>
         <SignContext.Provider value={{
           currentPage, setCurrentPage, 
