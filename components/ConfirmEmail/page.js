@@ -6,6 +6,10 @@ import { SignContext } from '../../contexts/SignContext'
 import OtpInput from 'react-otp-input';
 import '../ConfirmEmail/style.css'
 
+import { FaArrowLeftLong } from "react-icons/fa6";
+import Image from 'next/image';
+import logo from './../../images/logo_2.svg';
+
 export default function ConfirmEmail() {
     const [inputDisabled, setInputDisabled] = useState(false);
     const [ showAuthAlert, setShowAuthAlert ] = useState(false);
@@ -60,6 +64,11 @@ export default function ConfirmEmail() {
             </div>
           }
           {emailVerificationCode}
+          <a href="/" className="hidden lg:block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
+          <div className="block lg:hidden mb-16 absolute">
+            <a href="/" className="w-fit font-semibold">
+              <FaArrowLeftLong className="inline-block me-2 mt-3"/></a>
+          </div>
           <form onSubmit={handleSubmit(onSubmit)}>
               <p className="form_title text-4xl font-semibold mb-8">Confirm Email</p>
               <p className="form_title text-base mb-8">We sent a code to <span className="font-semibold">{userEmail}</span></p>

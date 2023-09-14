@@ -11,7 +11,7 @@ import logo from './../../images/logo_2.svg';
 
 export default function Login() {
   const [ showAuthAlert, setShowAuthAlert ] = useState(false);
-  const {setCurrentPage, emailSuccesConfirmed} = useContext(SignContext);
+  const {setCurrentPage, emailSuccesConfirmed, setEmailSuccesConfirmed} = useContext(SignContext);
   const auth = getAuth(app);
   const { register, handleSubmit, formState: { errors } } = useForm({mode: "all"});
   const router = useRouter();
@@ -24,6 +24,7 @@ export default function Login() {
       // localStorage.setItem("surname", data.surname);
       router.push("/");
     }catch(error){
+      setEmailSuccesConfirmed(false);
       setShowAuthAlert(true);
     } 
   }
