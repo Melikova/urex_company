@@ -3,6 +3,10 @@ import { app } from '../../firebase.config'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useContext } from 'react'
 import { SignContext } from '../../contexts/SignContext'
+import { FaArrowLeftLong } from "react-icons/fa6";
+
+import Image from 'next/image';
+import logo from './../../images/logo_2.svg';
 
 export default function ForgotPassword() {
   const {setCurrentPage} = useContext(SignContext);
@@ -19,8 +23,13 @@ export default function ForgotPassword() {
   }
     return (
       <>
+      <a href="/" className="hidden lg:block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
+      <div className="block lg:hidden mb-16 absolute">
+        <a href="/" className="w-fit font-semibold">
+          <FaArrowLeftLong className="inline-block me-2 mt-3"/></a>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-      <p className='form_title text-4xl font-semibold mb-5'>Forgot Password</p>
+      <p className='form_title text-2xl lg:text-4xl font-semibold mb-5'>Forgot Password</p>
       <p className='form_subtitle text-sm font-normal'>Enter the email address you used to register with UrexC</p>
       <div className="form-group">
         <label>Email adress</label>
