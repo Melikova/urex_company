@@ -20,8 +20,8 @@ export default function Home() {
       <Parallax />
       <AroundText />
       <AdvanceProtection />
-      <Estates />
-      <PriceCards />
+      {/* <Estates /> */}
+      {/* <PriceCards /> */}
       <ContactUs />
       </div>
       <Footer />

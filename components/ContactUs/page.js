@@ -52,11 +52,11 @@ function ContactInfo() {
     return (
         <div className='contactInfo'>
             <div className="container">
-                <div>
+                <div className='flex items-center justify-center'>
                     <h2>
                         Contact Information
                     </h2>
-                    <div>
+                    {/* <div>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M20.0002 10.999H22.0002C22.0002 5.869 18.1272 2 12.9902 2V4C17.0522 4 20.0002 6.943 20.0002 10.999Z" fill="white" />
@@ -82,7 +82,7 @@ function ContactInfo() {
                                 132 Dartmouth Street Boston, Massachusetts 02156 United States
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='contactUs'>
                     <h3>
