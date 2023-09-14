@@ -11,7 +11,7 @@ function ContactInfo() {
     function submitHandler() {
 
     }
-    const [selectValue, setSelectValue] = useState("Mövzu");
+    const [selectValue, setSelectValue] = useState("Subject");
     const [contactinfo, setcontactinfo] = useState({
         name: '',
         email: '',
@@ -93,7 +93,7 @@ function ContactInfo() {
                         <div className={contactinfo.name !== "" ? 'form-group col6 activeLabel' : 'form-group col6'}>
                             <input id="name" type="text" name="name" required value={contactinfo.name} onChange={handleChange} />
                             <label htmlFor="name">
-                                Ad Soyad
+                                Name Surname
                             </label>
                         </div>
                         <div className="form-group col6">
@@ -123,11 +123,11 @@ function ContactInfo() {
                         <div className='form-group col12 textarea'>
                             <textarea name="message" id="message" placeholder='Mesajınızı daxil edin..'></textarea>
                             <label htmlFor="message">
-                                Mesaj
+                                Message
                             </label>
                         </div>
                         <div className='button'>
-                            <button type='submit'>Mesaj göndər</button>
+                            <button type='submit'>Send a Message</button>
                         </div>
                     </form>
                 </div>
