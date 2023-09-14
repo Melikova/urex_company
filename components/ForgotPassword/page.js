@@ -48,6 +48,12 @@ export default function ForgotPassword() {
         Reset Password
       </button>
     </form>
+    <div className="mt-6 text-sm flex items-center justify-center">
+        <a onClick={()=>setCurrentPage('login')} className="cursor-pointer text-slate-500 hover:text-slate-700 text-sm w-fit font-medium flex items-center justify-center">
+          <FaArrowLeftLong className="inline-block me-3"/>
+          Back to Login
+        </a>
+    </div>
     </>
     )
   }
