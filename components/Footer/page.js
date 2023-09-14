@@ -24,7 +24,7 @@ function Footer() {
                   </defs>
                 </svg>
               </div>
-              <h3>Urexc</h3>
+              <h3>UREXC</h3>
             </div>
             <div className="row">
               <div>
@@ -175,7 +175,7 @@ function Footer() {
       <section>
         <div className="container">
           <p>
-            © Urexc – All rights reserved
+            © UREXC – All rights reserved
           </p>
           <div>
             <p>Terms and Conditions</p>
