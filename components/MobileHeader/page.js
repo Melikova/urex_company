@@ -10,15 +10,18 @@ import './style.scss';
 function MobileHeader(props) {
     return (
         <div className="mobileHeader">
-            <div className="logo">
-                <Image src={logo} alt="Picture of the author" />
-            </div>
             <div className='hamburger-menu' onClick={props.hamburgerSlide}>
                 <div className={props.hamburgerMenu ? 'active' : ''}>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
+            </div>
+            <div className="logo">
+                <Image src={logo} alt="Picture of the author" />
+            </div>
+            <div className='lg:hidden menu_sign_in'>
+                <a href="/sign" >Sign In</a>
             </div>
         </div>
     );

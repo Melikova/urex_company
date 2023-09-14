@@ -20,6 +20,8 @@ export default function Login() {
     try{
       await signInWithEmailAndPassword(auth, data.email, data.pass);
       localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("name", data.email);
+      // localStorage.setItem("surname", data.surname);
       router.push("/");
     }catch(error){
       setShowAuthAlert(true);

@@ -114,6 +114,10 @@ header {
                     }
                 }
 
+                .second_button{
+                    display:none !important;
+                }
+
                 .loginButton {
                     display: flex;
                     flex-direction: row;
@@ -197,6 +201,10 @@ header {
                         p {
                             color: $white;
                         }
+                    }
+
+                    .second_button{
+                        display:flex !important;
                     }
                 }
             }
