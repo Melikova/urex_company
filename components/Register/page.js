@@ -127,11 +127,16 @@ export default function Register() {
                 type="password" 
                 placeholder='At least 8 characters' />
                 <div>{
+                  errors?.pass && 
+                    <p className='text-red-600 mt-1'>{errors?.pass?.message || "Error"} </p>
+                    }
+                </div>
+                {/* <div>{
                   errors?.pass ? 
                     <p className='text-red-600 mt-1'>{errors?.pass?.message || "Error"} </p> :
                     <p className='mt-1 text-slate-500 text-xs mt-1 font-thin'>* Password must be minimum 8 characters and include at least one lowercase, one uppercase, one digit and one special character</p>
                     }
-                </div>
+                </div> */}
             </div>
             {/* <div className="form-group">
               <label>Confirm password</label>
@@ -148,6 +153,13 @@ export default function Register() {
                 type="password" />
                 <div>{errors?.confirm_pass && <p className='text-red-600 mt-1'>{errors?.confirm_pass?.message || "Error"}</p>}</div>
             </div> */}
+            <div className='text-slate-500 text-lg font-normal my-3 text-justify flex'>
+              <input type="checkbox" class="default:ring-2 checked:bg-blue-500 mr-2 w-8 h-8 me-4" />
+              <div>
+                <span>By clicking Sign Up, accept the </span>
+                <span className="cursor-pointer font-semibold text-black">Privacy Policy & Terms and Conditions</span>
+              </div>
+            </div>
             <button type="submit" className='text-white rounded-xl mt-3 mb-3'>
               Register
             </button>
