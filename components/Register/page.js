@@ -14,8 +14,15 @@ export default function Register() {
     const {setCurrentPage, setEmailVerificationCode, setUserEmail, setEmailSuccesConfirmed} = useContext(SignContext);
     const auth = getAuth(app);
     const { register, handleSubmit, watch, formState: { errors } } = useForm({mode: "all"});
+    const [agreement, setAgreement] = useState(false);
+    const [checkBoxRed, setcheckBoxRed] = useState(false);
+
+    const handleChange = (event) => {
+      setAgreement(event.target.checked);
+    }
 
     const onSubmit = async(data) => {
+      if(agreement===true){
         try{
           const user = createUserWithEmailAndPassword(auth, data.email, data.pass);
           setCurrentPage('confirm_email');
@@ -24,6 +31,9 @@ export default function Register() {
         }catch(error){
           console.log(error.message);
         } 
+      }else{
+        setcheckBoxRed(true);
+      }
     }
 
     const handleSignIn = () =>{
@@ -154,18 +164,18 @@ export default function Register() {
                 <div>{errors?.confirm_pass && <p className='text-red-600 mt-1'>{errors?.confirm_pass?.message || "Error"}</p>}</div>
             </div> */}
             <div className='text-slate-500 text-sm font-normal my-3 flex'>
-              <input type="checkbox" class="default:ring-2 checked:bg-blue-500 mr-2 w-4 h-4 me-2" />
-              <div className="text-justify">
+              <input type="checkbox" name="agreement" onChange={handleChange} class="default:ring-2 checked:bg-blue-500 mr-2 w-4 h-4 me-2" />
+              <div className={checkBoxRed ? "text-red-600 text-justify" : "text-justify"}>
                 <span>By clicking Sign Up, accept the </span>
-                <span className="cursor-pointer font-semibold text-black">Privacy Policy & Terms and Conditions</span>
+                <span className={checkBoxRed ? "cursor-pointer font-semibold text-red-600" :"cursor-pointer font-semibold text-black"}>Privacy Policy & Terms and Conditions</span>
               </div>
             </div>
             <button type="submit" className='text-white rounded-xl mt-3 mb-3'>
               Register
             </button>
           </form>
-          <div className='text-center text-lg'>
-            <p>Do you have an account? <a className="font-semibold" href="#" onClick={()=>handleSignIn()}>Sign in</a></p>
+          <div className='text-center text-lg mt-6 mb-12'>
+            <p>Do you have an account? <a className="text-blue-600 hover:text-blue-800 font-medium" href="#" onClick={()=>handleSignIn()}>Sign in</a></p>
           </div>
           <div className='social flex justify-center '>
             <div className='flex w-fit gap-x-12'>

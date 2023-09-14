@@ -88,8 +88,8 @@ export default function Login() {
         Sign in
       </button>
     </form>
-    <div className='text-center text-lg mt-6'>
-      <p>Don't you have an account? <a className="font-semibold" href="#" onClick={()=>setCurrentPage('register')}>Sign up</a></p>
+    <div className='text-center text-lg mt-6 mb-12'>
+      <p>Don't you have an account? <a className="text-blue-600 hover:text-blue-800 font-medium" href="#" onClick={()=>setCurrentPage('register')}>Sign up</a></p>
     </div>
     <div className='social flex justify-center '>
       <div className='flex w-fit gap-x-12'>
