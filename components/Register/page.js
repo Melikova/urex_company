@@ -153,8 +153,8 @@ export default function Register() {
                 type="password" />
                 <div>{errors?.confirm_pass && <p className='text-red-600 mt-1'>{errors?.confirm_pass?.message || "Error"}</p>}</div>
             </div> */}
-            <div className='text-slate-500 text-lg font-normal my-3 text-justify flex'>
-              <input type="checkbox" class="default:ring-2 checked:bg-blue-500 mr-2 w-8 h-8 me-4" />
+            <div className='text-slate-500 text-sm font-normal my-3 flex items-center'>
+              <input type="checkbox" class="default:ring-2 checked:bg-blue-500 mr-2 w-4 h-4 me-2" />
               <div>
                 <span>By clicking Sign Up, accept the </span>
                 <span className="cursor-pointer font-semibold text-black">Privacy Policy & Terms and Conditions</span>
