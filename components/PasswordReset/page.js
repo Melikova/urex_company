@@ -28,7 +28,7 @@ export default function PasswordReset() {
 
     const onSubmit = async(data) => {
         try{
-          setCurrentPage('login');
+          setCurrentPage('set_new_password');
         }catch(error){
           console.log(error.message);
         } 

@@ -15,8 +15,7 @@ export default function ForgotPassword() {
 
   const onSubmit = async(data) => {
     try{
-      const user = signInWithEmailAndPassword(auth, data.email, data.pass);
-      console.log(user);
+      setCurrentPage('password_reset');
     }catch(error){
       console.log(error.message);
     } 
