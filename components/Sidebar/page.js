@@ -74,7 +74,7 @@ export default function Sidebar() {
                                         <div>
                                             <Image src={menu.icon} alt="Picture of the author" />
                                         </div>
-                                        <div>{menu.label}</div>
+                                        <div className="whitespace-nowrap">{menu.label}</div>
                                     </a>
                                 </>
                             )
