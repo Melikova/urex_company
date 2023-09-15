@@ -4,6 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { useRouter } from 'next/navigation'
 
 import Image from 'next/image';
@@ -11,6 +12,7 @@ import logo from './../../images/logo_2.svg';
 
 export default function Login() {
   const [ showAuthAlert, setShowAuthAlert ] = useState(false);
+  const [ passShow, setPassShow ] = useState(false);
   const {setCurrentPage, emailSuccesConfirmed, setEmailSuccesConfirmed} = useContext(SignContext);
   const auth = getAuth(app);
   const { register, handleSubmit, formState: { errors } } = useForm({mode: "all"});
@@ -21,12 +23,15 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, data.email, data.pass);
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("name", data.email);
-      // localStorage.setItem("surname", data.surname);
       router.push("/");
     }catch(error){
       setEmailSuccesConfirmed(false);
       setShowAuthAlert(true);
     } 
+  }
+
+  const handleToggle = ()=>{
+    setPassShow(!passShow);
   }
 
     return (
@@ -49,7 +54,6 @@ export default function Login() {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
       <p className='form_title text-4xl font-semibold mb-12'>Login</p>
-      {/* <p className='form_subtitle text-sm font-normal'>Please enter your email and your password</p> */}
       <div className="form-group">
         <label>Email adress</label>
         <input {
@@ -65,6 +69,7 @@ export default function Login() {
       </div>
       <div className="form-group">
         <label>Password</label>
+        <div className="flex">
         <input {
           ...register('pass', {
             required: "Password is required",
@@ -78,8 +83,15 @@ export default function Login() {
             }
             })
           } 
-          type="password" 
+          type={passShow ? 'text' : "password"}
           placeholder='At least 8 characters' />
+          <div className="cursor-pointer" onClick={handleToggle}>
+            {passShow ? 
+              <BsEyeSlash className="ml-10 mt-1" size={25}/> :
+              <BsEye className="ml-10 mt-1" size={25}/>
+            }
+          </div>
+        </div>
           <div>{errors?.pass && <p className='text-red-600 mt-1'>{errors?.pass?.message || "Error"}</p>}</div>
       </div>
       <div className='text-center text-lg'>

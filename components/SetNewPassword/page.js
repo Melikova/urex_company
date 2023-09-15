@@ -1,14 +1,17 @@
 import { useForm } from "react-hook-form";
 import { app } from '../../firebase.config'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
   
 import Image from 'next/image';
 import logo from './../../images/logo_2.svg';
   
 export default function SetNewPassword() {
+  const [ passShowOne, setPassShowOne ] = useState(false);
+  const [ passShowTwo, setPassShowTwo ] = useState(false);
   const {setCurrentPage} = useContext(SignContext);
   const auth = getAuth(app);
   const { register, handleSubmit, watch, formState: { errors } } = useForm({mode: "all"});
@@ -20,6 +23,15 @@ export default function SetNewPassword() {
       console.log(error.message);
     } 
   }
+
+  const handleToggleOne = ()=>{
+    setPassShowOne(!passShowOne);
+  }
+
+  const handleToggleTwo = ()=>{
+    setPassShowTwo(!passShowTwo);
+  }
+
     return (
       <>
       <a href="/" className="hidden lg:block w-fit mb-8"><Image src={logo} alt="Picture of the author" /></a>
@@ -33,6 +45,7 @@ export default function SetNewPassword() {
       <div className="form-group">
       <div className="form-group">
               <label>Password</label>
+              <div className="flex">
               <input {
                 ...register('pass', {
                   required: "Password is required",
@@ -46,8 +59,15 @@ export default function SetNewPassword() {
                   }
                   })
                 } 
-                type="password" 
+                type={passShowOne ? 'text' : "password"} 
                 placeholder='At least 8 characters' />
+                <div className="cursor-pointer" onClick={handleToggleOne}>
+                  {passShowOne ? 
+                    <BsEyeSlash className="ml-10 mt-1" size={25}/> :
+                    <BsEye className="ml-10 mt-1" size={25}/>
+                  }
+                </div>
+              </div>
                 <div>{
                   errors?.pass && 
                     <p className='text-red-600 mt-1'>{errors?.pass?.message || "Error"} </p>
@@ -56,6 +76,7 @@ export default function SetNewPassword() {
             </div>
             <div className="form-group">
               <label>Confirm password</label>
+              <div className="flex">
               <input {
                 ...register('confirm_pass', {
                   required: "Confirm password is required",
@@ -66,7 +87,14 @@ export default function SetNewPassword() {
                   }
                   })
                 } 
-                type="password" />
+                type={passShowTwo ? 'text' : "password"} />
+                <div className="cursor-pointer" onClick={handleToggleTwo}>
+                  {passShowTwo ? 
+                    <BsEyeSlash className="ml-10 mt-1" size={25}/> :
+                    <BsEye className="ml-10 mt-1" size={25}/>
+                  }
+                </div>
+              </div>
                 <div>{errors?.confirm_pass && <p className='text-red-600 mt-1'>{errors?.confirm_pass?.message || "Error"}</p>}</div>
             </div>
             </div>

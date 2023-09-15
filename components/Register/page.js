@@ -5,11 +5,13 @@ import { useContext, useState } from 'react'
 import { SignContext } from '../../contexts/SignContext'
 import PhoneInput from 'react-phone-number-input/input'
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 import Image from 'next/image';
 import logo from './../../images/logo_2.svg';
 
 export default function Register() { 
+    const [ passShow, setPassShow ] = useState(false);
     const [phoneNumberValue, setPhoneNumberValue] = useState()
     const {setCurrentPage, setEmailVerificationCode, setUserEmail, setEmailSuccesConfirmed} = useContext(SignContext);
     const auth = getAuth(app);
@@ -39,6 +41,10 @@ export default function Register() {
     const handleSignIn = () =>{
       setCurrentPage('login');
       setEmailSuccesConfirmed(false);
+    }
+
+    const handleToggle = ()=>{
+      setPassShow(!passShow);
     }
 
     return (
@@ -121,6 +127,7 @@ export default function Register() {
             </div>
             <div className="form-group">
               <label>Password</label>
+              <div className="flex">
               <input {
                 ...register('pass', {
                   required: "Password is required",
@@ -134,8 +141,15 @@ export default function Register() {
                   }
                   })
                 } 
-                type="password" 
+                type={passShow ? 'text' : "password"}
                 placeholder='At least 8 characters' />
+                <div className="cursor-pointer" onClick={handleToggle}>
+                  {passShow ? 
+                    <BsEyeSlash className="ml-10 mt-1" size={25}/> :
+                    <BsEye className="ml-10 mt-1" size={25}/>
+                  }
+                </div>
+              </div>
                 <div>{
                   errors?.pass && 
                     <p className='text-red-600 mt-1'>{errors?.pass?.message || "Error"} </p>
